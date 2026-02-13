@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaGuard – Save Water, Secure Future</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="ripple-container">
+            <div class="ripple"></div>
+            <div class="ripple"></div>
+            <div class="ripple"></div>
+        </div>
+        <div class="water-drop-bg"></div>
+        <div class="water-drop-bg"></div>
+        <div class="water-drop-bg"></div>
+        <div class="water-drop-bg"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Loading Animation -->
+    <div class="loader" id="loader">
+        <div class="water-drop"></div>
+        <p>Loading AquaGuard...</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-tint"></i>
+                <span>AquaGuard</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#why-save" class="nav-link">Why Save</a></li>
+                <li><a href="#calculator" class="nav-link">Calculator</a></li>
+                <li><a href="#tracker" class="nav-link">Tracker</a></li>
+                <li><a href="#tips" class="nav-link">Tips</a></li>
+                <li><a href="#impact" class="nav-link">Impact</a></li>
+                <li><a href="#pledge" class="nav-link">Pledge</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="user-info" id="userInfo" style="display: none;">
+                    <span id="userName"></span>
+                    <button class="logout-btn" onclick="handleLogout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+                <a href="login.html" class="login-link" id="loginLink">
+                    <i class="fas fa-user"></i> Login
+                </a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Every Drop Counts</h1>
+            <p class="hero-subtitle">Join the movement to conserve water and secure a sustainable future for generations to come</p>
+            <button class="cta-button" onclick="scrollToSection('calculator')">
+                Start Saving Today
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3 class="counter" data-target="2.2">0</h3>
+                    <p>Billion People</p>
+                    <span>Lack Safe Water</span>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="70">0</h3>
+                    <p>Percent Water</p>
+                    <span>Used in Agriculture</span>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="97">0</h3>
+                    <p>Percent Saltwater</p>
+                    <span>On Earth</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Why Save Water Section -->
+    <section class="why-save" id="why-save">
+        <div class="container">
+            <h2 class="section-title">Why Save Water?</h2>
+            <p class="section-subtitle">Understanding the global water crisis</p>
+            <div class="cards-grid">
+                <div class="glass-card reveal" onclick="openDetailPage('global-scarcity')" style="cursor: pointer;">
+                    <div class="card-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Global Scarcity</h3>
+                    <p>Only 0.5% of Earth's water is available freshwater. By 2025, half the world's population will live in water-stressed areas.</p>
+                    <div class="card-stat">0.5%</div>
+                </div>
+                <div class="glass-card reveal" onclick="openDetailPage('health-impact')" style="cursor: pointer;">
+                    <div class="card-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Health Impact</h3>
+                    <p>829,000 people die each year from diseases directly attributed to unsafe water and poor sanitation.</p>
+                    <div class="card-stat">829K</div>
+                </div>
+                <div class="glass-card reveal" onclick="openDetailPage('ecosystem-balance')" style="cursor: pointer;">
+                    <div class="card-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Ecosystem Balance</h3>
+                    <p>Water conservation protects wetlands, rivers, and wildlife habitats essential for biodiversity.</p>
+                    <div class="card-stat">100%</div>
+                </div>
+                <div class="glass-card reveal" onclick="openDetailPage('economic-savings')" style="cursor: pointer;">
+                    <div class="card-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Economic Savings</h3>
+                    <p>Reducing water usage by 20% can save an average household $170 annually on utility bills.</p>
+                    <div class="card-stat">$170</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Water Usage Calculator -->
+    <section class="calculator" id="calculator">
+        <div class="container">
+            <h2 class="section-title">Water Usage Calculator</h2>
+            <p class="section-subtitle">Calculate your monthly water consumption</p>
+            <div class="calculator-wrapper reveal">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label><i class="fas fa-users"></i> Number of People</label>
+                        <input type="number" id="numPeople" min="1" value="4" placeholder="Enter number">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-shower"></i> Daily Shower Minutes (per person)</label>
+                        <input type="number" id="showerMinutes" min="0" value="10" placeholder="Enter minutes">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-tshirt"></i> Washing Machine Uses (per week)</label>
+                        <input type="number" id="washingUses" min="0" value="5" placeholder="Enter uses">
+                    </div>
+                    <button class="calc-button" onclick="calculateWaterUsage()">
+                        <i class="fas fa-calculator"></i> Calculate Usage
+                    </button>
+                </div>
+                <div class="calculator-result" id="calcResult">
+                    <div class="result-content">
+                        <h3>Your Monthly Usage</h3>
+                        <div class="usage-amount">
+                            <span id="usageValue">0</span>
+                            <small>Liters</small>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="usage-status" id="usageStatus">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Calculate to see your status</span>
+                        </div>
+                        <div class="usage-tips" id="usageTips"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Water Saving Tracker -->
+    <section class="tracker" id="tracker">
+        <div class="container">
+            <h2 class="section-title">Water Saving Tracker</h2>
+            <p class="section-subtitle">Track your daily water conservation</p>
+            <div class="tracker-wrapper reveal">
+                <div class="tracker-input">
+                    <h3>Log Today's Savings</h3>
+                    <div class="input-group">
+                        <input type="number" id="waterSaved" min="0" placeholder="Liters saved today">
+                        <button onclick="addWaterSaved()">
+                            <i class="fas fa-plus"></i> Add
+                        </button>
+                    </div>
+                    <div class="tracker-stats">
+                        <div class="stat-box">
+                            <i class="fas fa-calendar-day"></i>
+                            <div>
+                                <h4 id="todaySaved">0</h4>
+                                <p>Today</p>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <i class="fas fa-calendar-week"></i>
+                            <div>
+                                <h4 id="weekSaved">0</h4>
+                                <p>This Week</p>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <h4 id="monthSaved">0</h4>
+                                <p>This Month</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tracker-chart">
+                    <h3>Last 7 Days</h3>
+                    <canvas id="waterChart"></canvas>
+                    
+                    <div class="water-level-meter">
+                        <div class="level-label" id="levelLabel">0%</div>
+                        <div class="water-level" id="waterLevel">
+                            <div class="water-wave"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="achievements">
+                <h3><i class="fas fa-trophy"></i> Achievements</h3>
+                <div class="badges-grid" id="badgesGrid">
+                    <div class="badge" data-badge="first-drop" title="Save your first liter">
+                        <i class="fas fa-tint"></i>
+                        <p>First Drop</p>
+                    </div>
+                    <div class="badge" data-badge="week-warrior" title="Track for 7 days">
+                        <i class="fas fa-calendar-week"></i>
+                        <p>Week Warrior</p>
+                    </div>
+                    <div class="badge" data-badge="hundred-club" title="Save 100L total">
+                        <i class="fas fa-medal"></i>
+                        <p>100L Club</p>
+                    </div>
+                    <div class="badge" data-badge="eco-champion" title="Complete all challenges">
+                        <i class="fas fa-crown"></i>
+                        <p>Eco Champion</p>
+                    </div>
+                    <div class="badge" data-badge="pledge-taker" title="Take the pledge">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <p>Pledge Taker</p>
+                    </div>
+                    <div class="badge" data-badge="thousand-saver" title="Save 1000L total">
+                        <i class="fas fa-star"></i>
+                        <p>1000L Saver</p>
+                    </div>
+                </div>
+            </div>
+            <div class="leaderboard">
+                <h3><i class="fas fa-ranking-star"></i> Top Savers</h3>
+                <div class="leaderboard-list" id="leaderboardList"></div>
+            </div>
+            
+            <div class="water-saving-tips-quick">
+                <h3><i class="fas fa-lightbulb"></i> Quick Tips</h3>
+                <div class="quick-tips-grid">
+                    <div class="quick-tip">
+                        <i class="fas fa-shower"></i>
+                        <p>5-min showers save 25 gallons</p>
+                    </div>
+                    <div class="quick-tip">
+                        <i class="fas fa-faucet-drip"></i>
+                        <p>Fix leaks save 3000 gal/year</p>
+                    </div>
+                    <div class="quick-tip">
+                        <i class="fas fa-recycle"></i>
+                        <p>Reuse water for plants</p>
+                    </div>
+                    <div class="quick-tip">
+                        <i class="fas fa-tint-slash"></i>
+                        <p>Turn off tap when brushing</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="water-facts-carousel">
+                <h3><i class="fas fa-info-circle"></i> Did You Know?</h3>
+                <div class="fact-slider" id="factSlider">
+                    <div class="fact-item active">
+                        <i class="fas fa-globe"></i>
+                        <p>Only 3% of Earth's water is freshwater</p>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-users"></i>
+                        <p>1 in 3 people lack access to safe water</p>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-seedling"></i>
+                        <p>Agriculture uses 70% of freshwater</p>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-home"></i>
+                        <p>Average home uses 300 gallons daily</p>
+                    </div>
+                </div>
+                <div class="fact-dots" id="factDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips" id="tips">
+        <div class="container">
+            <h2 class="section-title">Water Saving Tips</h2>
+            <p class="section-subtitle">Simple ways to conserve water daily</p>
+            <div class="tips-wrapper reveal">
+                <div class="tips-sidebar">
+                    <div class="eco-score">
+                        <div class="score-badge">
+                            <i class="fas fa-leaf"></i>
+                            <div class="score-value" id="ecoScore">0</div>
+                            <p>Eco Score</p>
+                        </div>
+                        <p class="score-message" id="scoreMessage">Complete challenges to increase your score!</p>
+                    </div>
+                    <div class="challenges">
+                        <h3>Daily Challenges</h3>
+                        <div class="challenge-list">
+                            <div class="challenge-item">
+                                <input type="checkbox" id="challenge1" onchange="updateEcoScore()">
+                                <label for="challenge1">
+                                    <i class="fas fa-stopwatch"></i>
+                                    Take a 5-minute shower today
+                                </label>
+                            </div>
+                            <div class="challenge-item">
+                                <input type="checkbox" id="challenge2" onchange="updateEcoScore()">
+                                <label for="challenge2">
+                                    <i class="fas fa-faucet"></i>
+                                    Turn off tap while brushing
+                                </label>
+                            </div>
+                            <div class="challenge-item">
+                                <input type="checkbox" id="challenge3" onchange="updateEcoScore()">
+                                <label for="challenge3">
+                                    <i class="fas fa-recycle"></i>
+                                    Reuse water for plants
+                                </label>
+                            </div>
+                            <div class="challenge-item">
+                                <input type="checkbox" id="challenge4" onchange="updateEcoScore()">
+                                <label for="challenge4">
+                                    <i class="fas fa-wrench"></i>
+                                    Check for leaks
+                                </label>
+                            </div>
+                            <div class="challenge-item">
+                                <input type="checkbox" id="challenge5" onchange="updateEcoScore()">
+                                <label for="challenge5">
+                                    <i class="fas fa-tshirt"></i>
+                                    Run full laundry loads only
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <i class="fas fa-home"></i>
+                            <h3>At Home</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Fix leaky faucets - saves up to 3,000 gallons/year</li>
+                                <li><i class="fas fa-check"></i> Take shorter showers - save 5 gallons per minute</li>
+                                <li><i class="fas fa-check"></i> Turn off tap while brushing teeth</li>
+                                <li><i class="fas fa-check"></i> Use dishwasher only when full</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <i class="fas fa-bath"></i>
+                            <h3>Bathroom</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Install low-flow showerheads</li>
+                                <li><i class="fas fa-check"></i> Use dual-flush toilets</li>
+                                <li><i class="fas fa-check"></i> Collect shower water while warming up</li>
+                                <li><i class="fas fa-check"></i> Take 5-minute showers</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <i class="fas fa-utensils"></i>
+                            <h3>Kitchen</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Wash vegetables in a bowl, not running water</li>
+                                <li><i class="fas fa-check"></i> Reuse pasta water for plants</li>
+                                <li><i class="fas fa-check"></i> Run full loads in dishwasher</li>
+                                <li><i class="fas fa-check"></i> Keep drinking water in fridge</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <i class="fas fa-tree"></i>
+                            <h3>Garden</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Water plants early morning or evening</li>
+                                <li><i class="fas fa-check"></i> Use drip irrigation systems</li>
+                                <li><i class="fas fa-check"></i> Collect rainwater for gardening</li>
+                                <li><i class="fas fa-check"></i> Choose drought-resistant plants</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact" id="impact">
+        <div class="container">
+            <h2 class="section-title">Your Impact</h2>
+            <p class="section-subtitle">See the difference you're making</p>
+            <div class="impact-grid reveal">
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Water Saved</h3>
+                    <div class="impact-value">
+                        <span id="impactWater">0</span>
+                        <small>Liters</small>
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Trees Equivalent</h3>
+                    <div class="impact-value">
+                        <span id="impactTrees">0</span>
+                        <small>Trees</small>
+                    </div>
+                    <p class="impact-desc">Based on water needed to grow trees</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Carbon Reduced</h3>
+                    <div class="impact-value">
+                        <span id="impactCarbon">0</span>
+                        <small>kg CO₂</small>
+                    </div>
+                    <p class="impact-desc">Energy saved from water treatment</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Money Saved</h3>
+                    <div class="impact-value">
+                        <span id="impactMoney">0</span>
+                        <small>USD</small>
+                    </div>
+                    <p class="impact-desc">Approximate utility savings</p>
+                </div>
+            </div>
+            
+            <div class="share-buttons">
+                <button class="share-btn facebook" onclick="shareOnSocial('facebook')">
+                    <i class="fab fa-facebook"></i> Share on Facebook
+                </button>
+                <button class="share-btn twitter" onclick="shareOnSocial('twitter')">
+                    <i class="fab fa-twitter"></i> Share on Twitter
+                </button>
+                <button class="share-btn whatsapp" onclick="shareOnSocial('whatsapp')">
+                    <i class="fab fa-whatsapp"></i> Share on WhatsApp
+                </button>
+                <button class="share-btn linkedin" onclick="shareOnSocial('linkedin')">
+                    <i class="fab fa-linkedin"></i> Share on LinkedIn
+                </button>
+            </div>
+            
+            <div class="download-report">
+                <h3><i class="fas fa-file-download"></i> Download Your Impact Report</h3>
+                <button class="download-btn" onclick="downloadReport()">
+                    <i class="fas fa-download"></i> Generate PDF Report
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detail Page Popup -->
+    <div class="popup" id="detailPopup">
+        <div class="popup-content" style="max-width: 700px; max-height: 80vh; overflow-y: auto;">
+            <button class="popup-close" onclick="closeDetailPopup()">&times;</button>
+            <div id="detailContent"></div>
+        </div>
+    </div>
+
+    <!-- Pledge Section -->
+    <section class="pledge" id="pledge">
+        <div class="container">
+            <div class="pledge-wrapper reveal">
+                <h2 class="section-title">Take the Pledge</h2>
+                <p class="section-subtitle">Join thousands committed to water conservation</p>
+                <form class="pledge-form" id="pledgeForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="pledgeName" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="pledgeEmail" placeholder="Your Email" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="pledge-button">
+                        <i class="fas fa-hand-holding-water"></i>
+                        I Pledge to Save Water
+                    </button>
+                </form>
+                <div class="pledge-count">
+                    <i class="fas fa-users"></i>
+                    <span id="pledgeCount">1,247</span> people have taken the pledge
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-tint"></i> AquaGuard</h3>
+                    <p>Empowering communities to conserve water and build a sustainable future.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#why-save">Why Save</a></li>
+                        <li><a href="#calculator">Calculator</a></li>
+                        <li><a href="#tracker">Tracker</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#tips">Water Tips</a></li>
+                        <li><a href="#impact">Your Impact</a></li>
+                        <li><a href="#pledge">Take Pledge</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> info@aquaguard.org</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AquaGuard. All rights reserved. | Save Water, Secure Future</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Thank You Popup -->
+    <div class="popup" id="thankYouPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <div class="popup-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Thank You!</h2>
+            <p>Your pledge has been recorded. Together, we can make a difference!</p>
+            <button class="popup-button" onclick="closePopup()">Continue</button>
+        </div>
+    </div>
+
+    <!-- Login Reminder Popup -->
+    <div class="popup" id="loginReminderPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closeLoginReminder()">&times;</button>
+            <div class="popup-icon">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <h2>Welcome to AquaGuard!</h2>
+            <p>Create an account to save your progress and track your water conservation journey!</p>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <button class="popup-button" onclick="window.location.href='login.html'" style="flex: 1;">Login / Register</button>
+                <button class="popup-button" onclick="closeLoginReminder()" style="flex: 1; background: #64748b;">Continue as Guest</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Voice Control -->
+    <div class="voice-control">
+        <button class="voice-btn" id="voiceBtn" onclick="toggleVoice()" title="Voice Awareness">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
